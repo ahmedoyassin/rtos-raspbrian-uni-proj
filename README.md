@@ -1,4 +1,6 @@
-*Real-Time Task Scheduling in Embedded Linux*
+# README: Running the C Code on Rasbprian Using Geany
+
+**Real-Time Task Scheduling in Embedded Linux**
 
 ***Project Overview***
 
@@ -6,94 +8,87 @@ This project demonstrates real-time task scheduling in an embedded Linux environ
 
 ***Features***
 
-Real-time scheduling policies (Rate Monotonic and Priority Inversion).
+**Real-time scheduling policies (Rate Monotonic and Priority Inversion).**
+**Support Linux-based System**
+**Support for single-core and multi-core configurations.**
+**Tasks simulate workload and manage deadlines with periodic execution.**
+**System Requirements**
+**Simulated Hardware: Raspberry Pi machine (simulated).**
 
-Support for single-core and multi-core configurations.
+##Software:
 
-Tasks simulate workload and manage deadlines with periodic execution.
-
-System Requirements
-
-Simulated Hardware: Raspberry Pi machine (simulated).
-
-***Software:***
-
-GCC Compiler.
-
-Real-time enabled Linux kernel (PREEMPT_RT patch preferred).
+**GCC Compiler.**
+**Linux Machine**
+**Real-time enabled Linux kernel (PREEMPT_RT patch preferred).**
 
 **Getting Started**
 
 ***Prerequisites***
 
-Ensure the following tools are installed on your simulated Raspberry Pi environment:
+###Ensure the following tools are installed on your simulated Raspberry Pi environment:
 
-gcc (GNU Compiler Collection)
+**gcc (GNU Compiler Collection)**
 
-make (Optional for automated builds)
+**make (Optional for automated builds)**
 
-Install required tools using:
+###Install required tools using:
 
-sudo apt update
-sudo apt install gcc make
+**sudo apt update**
+**sudo apt install gcc make**
 
-Cloning the Repository
+###Compiling the Code
 
-Clone the project repository (if hosted online) or transfer the code file (embeddedlinux.c) to your simulated environment.
+###Open a terminal in your simulated environment.
 
-Compiling the Code
+**Navigate to the directory containing the embeddedlinux.c file.**
 
-Open a terminal in your simulated environment.
+###Compile the code using the following command:
 
-Navigate to the directory containing the embeddedlinux.c file.
+**gcc -pthread -o embeddedlinux embeddedlinux.c**
 
-Compile the code using the following command:
+###Running the Code
 
-gcc -pthread -o embeddedlinux embeddedlinux.c
+**Ensure you have real-time scheduling permissions. Run:**
 
-Running the Code
+**sudo su**
 
-Ensure you have real-time scheduling permissions. Run:
+**to switch to the root user or use sudo before executing the program.**
 
-sudo su
+**Execute the compiled program:**
 
-to switch to the root user or use sudo before executing the program.
+**sudo ./embeddedlinux**
 
-Execute the compiled program:
+**Observe the task logs in the terminal, including deadline compliance and resource access.**
 
-sudo ./embeddedlinux
+**Explanation of Configuration Options**
 
-Observe the task logs in the terminal, including deadline compliance and resource access.
+**The program is configurable via macros defined in embeddedlinux.c:**
 
-Explanation of Configuration Options
+###Scheduling Policy:
 
-The program is configurable via macros defined in embeddedlinux.c:
+**RATE_MONOTONIC: Default scheduling policy.**
 
-Scheduling Policy:
+**PRIORITY_INVERSION: Enables resource locking.**
 
-RATE_MONOTONIC: Default scheduling policy.
+###Core Affinity:
 
-PRIORITY_INVERSION: Enables resource locking.
+**SINGLE_CORE or MULTIPLE_CORES.**
 
-Core Affinity:
+**Task Periods: Configurable via TASK1_INTERVAL_US, TASK2_INTERVAL_US, and TASK3_INTERVAL_US.**
 
-SINGLE_CORE or MULTIPLE_CORES.
+**Workload: Adjusted by changing INNER_LOOP_COUNT_FIXED or INNER_LOOP_COUNT_VARIABLE.**
 
-Task Periods: Configurable via TASK1_INTERVAL_US, TASK2_INTERVAL_US, and TASK3_INTERVAL_US.
+**Stopping the Program**
 
-Workload: Adjusted by changing INNER_LOOP_COUNT_FIXED or INNER_LOOP_COUNT_VARIABLE.
+**To terminate the program, press Ctrl + C in the terminal.**
 
-Stopping the Program
+###Troubleshooting
 
-To terminate the program, press Ctrl + C in the terminal.
+**Permission Denied Errors: Ensure you are running the program as a root user (sudo).**
 
-Troubleshooting
+###Real-Time Performance Issues:
 
-Permission Denied Errors: Ensure you are running the program as a root user (sudo).
-
-***Real-Time Performance Issues:***
-
-Verify if the Linux kernel has real-time support (uname -a).
+**Verify if the Linux kernel has real-time support (uname -a).**
 
 Use tools like htop to monitor CPU usage and core affinity.
 
