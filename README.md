@@ -1,4 +1,4 @@
-**Real-Time Task Scheduling in Embedded Linux**
+*Real-Time Task Scheduling in Embedded Linux*
 
 ***Project Overview***
 
