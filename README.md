@@ -15,7 +15,7 @@ This project demonstrates real-time task scheduling in an embedded Linux environ
 **System Requirements**
 **Simulated Hardware: Raspberry Pi machine (simulated).**
 
-##Software:
+## Software:
 
 **GCC Compiler.**
 **Linux Machine**
@@ -25,28 +25,28 @@ This project demonstrates real-time task scheduling in an embedded Linux environ
 
 ***Prerequisites***
 
-###Ensure the following tools are installed on your simulated Raspberry Pi environment:
+### Ensure the following tools are installed on your simulated Raspberry Pi environment:
 
 **gcc (GNU Compiler Collection)**
 
 **make (Optional for automated builds)**
 
-###Install required tools using:
+### Install required tools using:
 
 **sudo apt update**
 **sudo apt install gcc make**
 
-###Compiling the Code
+### Compiling the Code
 
-###Open a terminal in your simulated environment.
+### Open a terminal in your simulated environment.
 
 **Navigate to the directory containing the embeddedlinux.c file.**
 
-###Compile the code using the following command:
+### Compile the code using the following command:
 
 **gcc -pthread -o embeddedlinux embeddedlinux.c**
 
-###Running the Code
+### Running the Code
 
 **Ensure you have real-time scheduling permissions. Run:**
 
@@ -64,13 +64,13 @@ This project demonstrates real-time task scheduling in an embedded Linux environ
 
 **The program is configurable via macros defined in embeddedlinux.c:**
 
-###Scheduling Policy:
+### Scheduling Policy:
 
 **RATE_MONOTONIC: Default scheduling policy.**
 
 **PRIORITY_INVERSION: Enables resource locking.**
 
-###Core Affinity:
+### Core Affinity:
 
 **SINGLE_CORE or MULTIPLE_CORES.**
 
@@ -82,7 +82,7 @@ This project demonstrates real-time task scheduling in an embedded Linux environ
 
 **To terminate the program, press Ctrl + C in the terminal.**
 
-###Troubleshooting
+### Troubleshooting
 
 **Permission Denied Errors: Ensure you are running the program as a root user (sudo).**
 
